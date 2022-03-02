@@ -1,0 +1,215 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #f2f2f2;
+    overflow: hidden;
+}
+
+.road {
+    position: absolute;
+    top: 50%;
+    transform: translate(0px, -50%);
+    height: 10vw;
+    width: 100%;
+
+    &__first-half, &__second-half {
+        width: 100%;
+        height: 10vh;
+        transform: translate(100%, 0);
+        position: absolute;
+        top: 0;
+        right: 0;
+        animation: scrollRoad 40s infinite linear forwards;
+        background-image: url("../img/road.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+
+    &__second-half {
+        animation: 40s scrollRoad 20s infinite linear forwards;
+    }
+
+    &__three {
+        width: 11vw;
+        height: 12vw;
+        background-image: url("../img/three.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+        position: fixed;
+    }
+
+    &__three:nth-child(1) {
+        top: -12vw;
+        left: 10vw;
+    }
+
+    &__three:nth-child(2) {
+        top: -5vw;
+        left: 60vw;
+        z-index: 1;
+    }
+}
+
+
+@keyframes scrollRoad {
+    0% {
+        transform: translate(100%, 0);
+    }
+
+    50% {
+        transform: translate(0, 0);
+    }
+
+    100% {
+        transform: translate(-100%, 0);
+    }
+}
+
+.ship {
+    width: 12vw;
+    height: 7vw;
+    background-image: url("../img/ship.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -200%);
+
+    &__foot {
+        height: 7vw;
+        width: 3vw;
+        background-image: url("../img/food.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+        position: absolute;
+        left: 10%;
+        top: 66%;
+    }
+
+    &__foot:nth-child(2) {
+        left: 15%;
+        top: 66%;
+        animation: shipGoFootOne 3s linear infinite;
+    }
+
+    &__foot:nth-child(3) {
+        left: -1%;
+        top: 66%;
+        transform: rotate(30deg);
+        animation: shipGoFootTwo 3s linear infinite;
+    }
+
+    &__foot:nth-child(4) {
+        left: 60%;
+        top: 66%;
+        transform: rotate(30deg);
+        animation: shipGoFootThree 3s linear infinite;
+    }
+
+    &__foot:nth-child(5) {
+        left: 78%;
+        top: 66%;
+        animation: shipGoFootFourth 3s linear infinite;
+    }
+
+    &__cloud{
+        width: 20vw;
+        height: 10vw;
+        background-image: url("../img/c");
+    }
+}
+
+@keyframes shipGoFootOne {
+    0% {
+        transform: rotate(0deg);
+        left: 15%;
+    }
+    50% {
+        transform: rotate(30deg);
+        left: -1%;
+    }
+    100% {
+        transform: rotate(0deg);
+        left: 15%;
+    }
+}
+
+@keyframes shipGoFootTwo {
+    0% {
+        left: -1%;
+        transform: rotate(30deg);
+    }
+    50% {
+        left: 15%;
+        transform: rotate(0deg);
+    }
+    100% {
+        left: -1%;
+        transform: rotate(30deg);
+    }
+}
+
+@keyframes shipGoFootThree {
+    0% {
+        left: 60%;
+        top: 66%;
+        transform: rotate(30deg);
+    }
+    50% {
+        left: 78%;
+        top: 66%;
+        transform: rotate(0deg);
+    }
+    100% {
+        left: 60%;
+        top: 66%;
+        transform: rotate(30deg);
+    }
+}
+
+@keyframes shipGoFootFourth {
+    0% {
+        transform: rotate(0deg);
+        left: 78%;
+        top: 66%;
+    }
+    50% {
+        transform: rotate(30deg);
+        left: 60%;
+        top: 66%;
+    }
+    100% {
+        transform: rotate(0deg);
+        left: 78%;
+        top: 66%;
+    }
+}
+
+.dick {
+    background-image: url("../img/dick.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 12vw;
+    width: 8vw;
+    position: absolute;
+    top: 50%;
+    right: 3%;
+    transform: translate(0, -100%);
+    animation: dickAnim 1s linear infinite;
+}
+
+@keyframes dickAnim {
+    0% {
+        transform: rotate(3deg) translate(0, -100%);
+    }
+    50% {
+        transform: rotate(-3deg) translate(0, -100%);
+    }
+    100% {
+        transform: rotate(3deg) translate(0, -100%);
+    }
+}
